@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ты серьёзно?</title>
+    <link rel="stylesheet" href="over.css">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Ты серьёзно?</h1>
+        <p>Ты реально выбрал девушку как счастье? Тебе 13 лет? Тебе это ничего не дало, кроме иллюзии вечно любви, которой на самом деле нет. 
+            А ещё, ты начал слабеть каждый день. Счастья теперь не будет никогда. Игра окончена. 
+        </p>
+        <div class="choices">
+            <a href="index.html" class="choice">
+                <img src="https://img5tv.cdnvideo.ru/webp/shared/files/201903/1_893156.jpg" alt="Продолжить?">
+                <span>Продолжить?</span>
+            </a>
+        </div>
+    </div>
+
+    <audio id="bgMusic" loop>
+  <source
+    src="music\Mega Man—Cut Man.mp3"
+    type="audio/mpeg"
+  />
+</audio>
+
+<!-- Кнопка для управления звуком. По умолчанию звук считаем выключенным до действий пользователя -->
+<button id="muteBtn" class="mute-button">🔇 Звук выключен</button>
+
+<!-- Подключаем наш будущий файл с логикой JavaScript -->
+<script src="script.js"></script>
+
+</body>
+
+</html>
