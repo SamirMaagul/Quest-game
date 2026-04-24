@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сможешь найти счастье?</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Сможешь найти счастье?</h1>
+       <!-- span с уникальным id нужен как "якорь" для вставки значения из JS -->
+<p style="color: #32CD32; font-weight: bold;">
+  Успешных прохождений: <span id="winCount">0</span>
+</p>
+        <p>Знаешь, что по настоящему даёт человеку причину для жизни? Его здравый смысл.
+            Умение понимать, и чувствовать. Способность любить, и видеть то, чего обычно не замечают другие.
+            Как насчёт того, чтобы попытаться найти что нибудь, что сделает тебя счастливей? </p>
+        <div class="choices">
+            <a href="park.html" class="choice">
+                <!-- Картинка леса -->
+                <img src="https://avatars.mds.yandex.net/get-altay/4524003/2a0000017c564facc62627c7bdb20fea8549/orig" alt="Парк">
+                <span>Идти в Парк</span>
+            </a>
+            <a href="job.html" class="choice">
+                <!-- Картинка пещеры -->
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Nintendo_office.jpg/1200px-Nintendo_office.jpg" alt="Работа">
+                <span>Идти на Работу</span>
+            </a>
+        </div>
+    </div>
+    <!-- Тег audio загружает звуковой файл. 
+     Атрибут loop заставляет музыку играть по кругу. 
+     Атрибут id нужен, чтобы мы могли обращаться к элементу из JavaScript -->
+<audio id="bgMusic" loop>
+  <source
+    src="music\Mega Man—Cut Man.mp3"
+    type="audio/mpeg"
+  />
+</audio>
+
+<!-- Кнопка для управления звуком. По умолчанию звук считаем выключенным до действий пользователя -->
+<button id="muteBtn" class="mute-button">🔇 Звук выключен</button>
+
+<!-- Подключаем наш будущий файл с логикой JavaScript -->
+<script src="script.js"></script>
+
+</body>
+
+</html>

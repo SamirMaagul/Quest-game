@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Выбор за тобой!</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Контейнер для шкалы здоровья -->
+<div
+  style="width: 100%; background-color: #555; border-radius: 10px; margin-bottom: 20px;"
+>
+  <!-- Сама "живая" полоска. id нужен для управления шириной из JS -->
+  <div
+    id="hpBar"
+    style="width: 100%; height: 20px; background-color: #32CD32; border-radius: 10px; transition: width 0.3s; text-align: center; color: white; font-size: 14px; font-weight: bold; line-height: 20px;"
+  >
+    100%
+  </div>
+</div>
+
+        <h1>Выбор за тобой!</h1>
+        <p>Ты ушёл с работы, и попал на улицу. Да, денег у тебя не будет, но зато... осталось кое что важное.
+            Ты встретил своего друга, у него есть желание снова тебя проверить. Вы хотите веселиться.
+            Сзади вас стоит красивая девушка. Она одна, и хочет с кем то общения. Кого из этих двух выберешь?
+        </p>
+        <p style="color: red; font-size: 24px; font-weight: bold; text-align: center;">
+  Осталось времени: <span id="timerText">5</span> сек!
+</p>
+
+        <div class="choices">
+            <a href="joy.html" class="choice">
+                <img src="https://avatars.mds.yandex.net/i?id=ffd6f810bdc74b7f18b17047eaa5fbce_l-5496136-images-thumbs&n=13" alt="Друг">
+                <span>Друг</span>
+            </a>
+            <a href="girl.html" class="choice">
+                <img src="https://avatars.mds.yandex.net/i?id=e869c52e4c020adedece4f480373da4c_l-10918338-images-thumbs&n=13" alt="Девушка">
+                <span>Девушка</span>
+            </a>
+            <a href="joy.html" class="choice" id="secretDoorBtn" style="display: none;">
+  <img
+    src="https://fnaf.swiki.jp/index.php?plugin=attach&refer=Ultimate%20Custom%20Night%2FMAP&openfile=UCNFullMap.png"
+    alt="Карта старика"
+  />
+  <span>Карта старика</span>
+</a>
+
+        </div>
+    </div>
+    <audio id="bgMusic" loop>
+  <source
+    src="music\Mega Man—Cut Man.mp3"
+    type="audio/mpeg"
+  />
+</audio>
+
+<!-- Кнопка для управления звуком. По умолчанию звук считаем выключенным до действий пользователя -->
+<button id="muteBtn" class="mute-button">🔇 Звук выключен</button>
+
+<!-- Подключаем наш будущий файл с логикой JavaScript -->
+<script src="script.js"></script>
+
+<script>
+  // Проверяем, есть ли нужный предмет в массиве
+  if (hasItem("Карта старика")) {
+    // Если предмет есть, находим скрытую кнопку и делаем её видимой
+    // 'flex' используется потому, что класс .choice в нашем CSS основан на flexbox
+    document.getElementById("secretDoorBtn").style.display = "flex";
+  }
+</script>
+
+<script>
+  const timerText = document.getElementById("timerText");
+  let timeLeft = 5; // Время в секундах
+ 
+  // setInterval вызывает указанную функцию каждый 1000 миллисекунд (1 секунду)
+  const countdown = setInterval(() => {
+    timeLeft--; // Уменьшаем время на 1
+    timerText.innerText = timeLeft; // Показываем на экране
+ 
+    // Если время вышло
+    if (timeLeft <= 0) {
+      clearInterval(countdown); // Останавливаем работу таймера, чтобы не ушел в минус
+      alert("Ну зачем быть таким медленным... Теперь вас похитила девушка.");
+      takeDamage(100); // Смертельный урон из нашей прошлой механики!
+      // или просто window.location.href = 'trap.html';
+    }
+  }, 1000); // 1000 мс = 1 секунда
+</script>
+
+
+</body>
+
+</html>
